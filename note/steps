@@ -1,0 +1,9 @@
+// install eslint
+npm i eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-node eslint-plugin-prettier eslint-plugin-react prettier --save-dev
+// create .eslintrc.json
+// create .prettierrc
+// create .config.env
+npm i dotenv
+// create .server
+
+
