@@ -1,0 +1,16 @@
+# Created by .ignore support plugin (hsz.mobi)
+#.eslintrc.json
+#.gitignore
+.idea/
+#.prettierrc
+#app.js
+#bin/
+config.env
+node_modules/
+#note/
+#package-lock.json
+#package.json
+#public/
+#routes/
+#server.js
+#views/
