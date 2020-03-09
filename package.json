@@ -18,7 +18,8 @@
     "http-errors": "~1.6.3",
     "mongoose": "^5.9.2",
     "morgan": "~1.9.1",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "validator": "^12.2.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
