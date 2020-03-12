@@ -39,6 +39,11 @@ const userSchema = new mongoose.Schema({
             message: 'Current password not equal ({VALUE})',
         },
     },
+    passwordChangedAt: {
+        type: Date,
+        // select: false,
+        default: Date.now()
+    },
 });
 
 userSchema.pre('save', async function(next) {
@@ -49,7 +54,17 @@ userSchema.pre('save', async function(next) {
 });
 
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword) {
-    return await bcrypt.compare(candidatePassword, userPassword)
+    return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
+    if (this.passwordChangedAt) {
+        const changeTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+        // console.log(changeTimestamp, JWTTimestamp);
+        return JWTTimestamp < changeTimestamp;
+    }
+    // false means not changed (ложное означает, что не изменилось)
+    return false;
 };
 
 const User = mongoose.model('User', userSchema);

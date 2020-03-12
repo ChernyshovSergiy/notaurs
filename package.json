@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.2",
     "morgan": "~1.9.1",
+    "node-core-lib": "^0.11.11",
     "pug": "^2.0.4",
     "validator": "^12.2.0"
   },
