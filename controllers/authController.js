@@ -2,7 +2,7 @@ const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const jwt = require('jsonwebtoken');
 const AppError = require('./../utils/appError');
-const {promisify} = require('util');
+const { promisify } = require('util');
 
 const signToken = id => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -61,13 +61,24 @@ exports.protect = catchAsync(async (req, res, next) => {
     // 3) Check if user still exist
     const currentUser = await User.findById(decoded.id);
     if (!currentUser) {
-        return next(new AppError('The user belonging to this token does no longer exist.', 401))
+        return next(new AppError('The user belonging to this token does no longer exist.', 401));
     }
     // 4) Check if user change password after the token was issued
-    if(currentUser.changedPasswordAfter(decoded.iat)){
+    if (currentUser.changedPasswordAfter(decoded.iat)) {
         return next(new AppError('User recently change password! Pleas log in again.', 401));
     }
     // GRANT ACCESS TO PROTECTED ROUTE (Предоставление доступа к защищенному ROUTE)
     req.user = currentUser;
     next();
 });
+
+exports.restrictTo = (...roles) => {
+    return (req, res, next) => {
+        // roles ['admin', 'lead-guide']. role='user'
+        if (!roles.includes(req.user.role)) {
+            return next(new AppError('You do not have permission to perform this action', 403));
+        }
+
+        next();
+    };
+};
