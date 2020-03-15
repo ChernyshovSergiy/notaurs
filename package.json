@@ -1,42 +1,43 @@
 {
-  "name": "notaurs",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Learning node, express and mongoDB",
-  "main": "app.js",
-  "scripts": {
-    "start": "node ./bin/www",
-    "start:dev": "nodemon server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js",
-    "debug": "ndb server.js"
-  },
-  "author": "Sergiy Chernyshov",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.4",
-    "http-errors": "~1.6.3",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.2",
-    "morgan": "~1.9.1",
-    "node-core-lib": "^0.11.11",
-    "pug": "^2.0.4",
-    "validator": "^12.2.0"
-  },
-  "devDependencies": {
-    "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
-    "ndb": "^1.1.5",
-    "prettier": "^1.19.1",
-    "slugify": "^1.4.0"
-  }
+    "name": "notaurs",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Learning node, express and mongoDB",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ./bin/www",
+        "start:dev": "nodemon server.js",
+        "start:prod": "NODE_ENV=production nodemon server.js",
+        "debug": "ndb server.js"
+    },
+    "author": "Sergiy Chernyshov",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "express": "~4.16.4",
+        "http-errors": "~1.6.3",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.9.2",
+        "morgan": "~1.9.1",
+        "node-core-lib": "^0.11.11",
+        "nodemailer": "^6.4.5",
+        "pug": "^2.0.4",
+        "validator": "^12.2.0"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.18.3",
+        "ndb": "^1.1.5",
+        "prettier": "^1.19.1",
+        "slugify": "^1.4.0"
+    }
 }
