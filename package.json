@@ -8,11 +8,15 @@
         "start": "node ./bin/www",
         "start:dev": "nodemon server.js",
         "start:prod": "nodemon server.js NODE_ENV=production",
-        "debug": "ndb server.js"
+        "debug": "ndb server.js",
+        "watch:js": "parcel watch ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js",
+        "build:js": "parcel watch ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js"
     },
     "author": "Sergiy Chernyshov",
     "license": "ISC",
     "dependencies": {
+        "@babel/polyfill": "^7.8.7",
+        "axios": "^0.19.2",
         "bcryptjs": "^2.4.3",
         "cookie-parser": "^1.4.5",
         "debug": "~2.6.9",
@@ -27,6 +31,7 @@
         "morgan": "~1.9.1",
         "node-core-lib": "^0.11.11",
         "nodemailer": "^6.4.5",
+        "parcel-bundler": "^1.12.4",
         "pug": "^2.0.4",
         "validator": "^12.2.0",
         "xss-clean": "^0.1.1"
