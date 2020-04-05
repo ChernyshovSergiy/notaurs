@@ -82,7 +82,7 @@ exports.protect = catchAsync(async (req, res, next) => {
         token = req.cookies.jwt;
     }
     if (!token) {
-        return next(new AppError('You are not logged in! Please log in in to get access', 401));
+        return next(new AppError('You are not logged in! Please log in to get access', 401));
     }
     // 2) Verification token
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
@@ -98,6 +98,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     }
     // GRANT ACCESS TO PROTECTED ROUTE (Предоставление доступа к защищенному ROUTE)
     req.user = currentUser;
+    res.locals.user = currentUser;
     next();
 });
 
