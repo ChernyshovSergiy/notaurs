@@ -8440,9 +8440,8 @@ var login = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(email, password);
-            _context.prev = 1;
-            _context.next = 4;
+            _context.prev = 0;
+            _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
               url: 'http://127.0.0.1:3000/api/v1/users/login',
@@ -8452,7 +8451,7 @@ var login = /*#__PURE__*/function () {
               }
             });
 
-          case 4:
+          case 3:
             res = _context.sent;
 
             if (res.data.status === 'success') {
@@ -8460,23 +8459,23 @@ var login = /*#__PURE__*/function () {
               window.setTimeout(function () {
                 location.assign('/');
               }, 1500);
-            }
+            } //console.log(res);
 
-            console.log(res);
-            _context.next = 12;
+
+            _context.next = 10;
             break;
 
-          case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](1);
+          case 7:
+            _context.prev = 7;
+            _context.t0 = _context["catch"](0);
             (0, _alerts.showAlert)('error', _context.t0.response.data.message);
 
-          case 12:
+          case 10:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 9]]);
+    }, _callee, null, [[0, 7]]);
   }));
 
   return function login(_x, _x2) {

@@ -79,7 +79,7 @@ app.use(
 app.use((req, res, next) => {
     // req.requestTime = new Date().toISOString();
     req.requestTime = new Date().toString();
-    console.log(req.cookies.jwt);
+    //console.log(req.cookies.jwt);
     next();
 });
 
