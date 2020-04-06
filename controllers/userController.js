@@ -1,6 +1,6 @@
-const User = require('./../models/userModel');
 const multer = require('multer');
 const sharp = require('sharp');
+const User = require('./../models/userModel');
 // const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
@@ -33,7 +33,7 @@ const upload = multer({
 
 exports.uploadUserPhoto = upload.single('photo');
 
-exports.resizeUserPhoto = async (req, res, next) => {
+exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
     if (!req.file) return next();
 
     const orgName = req.file.originalname.split('.')[0];
@@ -45,7 +45,7 @@ exports.resizeUserPhoto = async (req, res, next) => {
         .jpeg({ quality: 90 })
         .toFile(`public/images/users/${req.file.filename}`);
     next();
-};
+});
 
 const filterObj = (obj, ...allowedFields) => {
     const newObj = {};
