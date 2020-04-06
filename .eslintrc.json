@@ -1,6 +1,16 @@
 {
     "extends": ["airbnb", "prettier", "plugin:node/recommended"],
     "plugins": ["prettier"],
+//    "ecmaFeatures": {
+//        "modules": true,
+//        "spread" : true,
+//        "restParams" : true
+//    },
+//    "env" : {
+//        "browser" : true,
+//        "node" : true,
+//        "es6" : true
+//    },
     "rules": {
         "prettier/prettier": "error",
         "spaced-comment": "off",
@@ -15,5 +25,8 @@
         "class-methods-use-this": "off",
         "prefer-destructuring": ["error", { "object": true, "array": false }],
         "no-unused-vars": ["error", { "argsIgnorePattern": "req|res|next|val" }]
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }

@@ -8544,6 +8544,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+// type is either 'password' or 'data'
 var updateSettings = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, type) {
     var url, res;
@@ -8564,7 +8565,7 @@ var updateSettings = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', "".concat(type.toUpperCase(), " update successfully!"));
+              (0, _alerts.showAlert)('success', "".concat(type.toUpperCase(), " updated successfully!"));
             }
 
             _context.next = 11;
@@ -8872,36 +8873,19 @@ if (mapBox) {
 }
 
 if (loginForm) {
-  loginForm.addEventListener('submit', function (e) {
-    e.preventDefault(); //VALUES
-
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    (0, _login.login)(email, password);
-  });
-}
-
-if (logOutButton) {
-  logOutButton.addEventListener('click', _login.logout);
-}
-
-if (userDataForm) {
-  userDataForm.addEventListener('submit', /*#__PURE__*/function () {
+  loginForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var name, email;
+      var email, password;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault(); //VALUES
 
-              name = document.getElementById('name').value;
               email = document.getElementById('email').value;
+              password = document.getElementById('password').value;
               _context.next = 5;
-              return (0, _updateSettings.updateSettings)({
-                name: name,
-                email: email
-              }, 'data');
+              return (0, _login.login)(email, password);
 
             case 5:
             case "end":
@@ -8917,13 +8901,48 @@ if (userDataForm) {
   }());
 }
 
-if (userPasswordForm) {
-  userPasswordForm.addEventListener('submit', /*#__PURE__*/function () {
+if (logOutButton) {
+  logOutButton.addEventListener('click', _login.logout);
+}
+
+if (userDataForm) {
+  userDataForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
-      var passwordCurrent, password, passwordConfirmation;
+      var form;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              form = new FormData();
+              form.append('name', document.getElementById('name').value);
+              form.append('email', document.getElementById('email').value);
+              form.append('photo', document.getElementById('photo').files[0]);
+              console.log(form);
+              _context2.next = 8;
+              return (0, _updateSettings.updateSettings)(form, 'data');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+}
+
+if (userPasswordForm) {
+  userPasswordForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(e) {
+      var passwordCurrent, password, passwordConfirmation;
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               e.preventDefault();
               document.querySelector('.btn--save-password').textContent = 'Update ...'; //VALUES
@@ -8931,7 +8950,7 @@ if (userPasswordForm) {
               passwordCurrent = document.getElementById('password-current').value;
               password = document.getElementById('password').value;
               passwordConfirmation = document.getElementById('password-confirm').value;
-              _context2.next = 7;
+              _context3.next = 7;
               return (0, _updateSettings.updateSettings)({
                 passwordCurrent: passwordCurrent,
                 password: password,
@@ -8946,14 +8965,14 @@ if (userPasswordForm) {
 
             case 11:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
     };
   }());
 }
@@ -8985,7 +9004,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59705" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46531" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

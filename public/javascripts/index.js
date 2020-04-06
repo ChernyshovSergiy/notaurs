@@ -1,3 +1,4 @@
+/* eslint-disable */
 import '@babel/polyfill';
 import { displayMap } from './mapbox';
 import { login, logout } from './login';
@@ -18,12 +19,12 @@ if (mapBox) {
 }
 
 if (loginForm) {
-    loginForm.addEventListener('submit', e => {
+    loginForm.addEventListener('submit', async e => {
         e.preventDefault();
         //VALUES
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        login(email, password);
+        await login(email, password);
     });
 }
 
@@ -34,10 +35,13 @@ if (logOutButton) {
 if (userDataForm) {
     userDataForm.addEventListener('submit', async e => {
         e.preventDefault();
-        //VALUES
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        await updateSettings({ name, email }, 'data');
+        const form = new FormData();
+        form.append('name', document.getElementById('name').value);
+        form.append('email', document.getElementById('email').value);
+        form.append('photo', document.getElementById('photo').files[0]);
+        console.log(form);
+
+        await updateSettings(form, 'data');
     });
 }
 
