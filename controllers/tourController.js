@@ -30,7 +30,7 @@ exports.uploadTourImages = upload.fields([
 // upload.array('images', 5) req files
 
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
-    console.log(req.files);
+    // console.log(req.files);
 
     if (!req.files.imageCover || !req.files.images) return next();
 
@@ -329,7 +329,7 @@ exports.getDistances = catchAsync(async (req, res, next) => {
     const multiplier = unit === 'mi' ? 0.000621371 : 0.001;
 
     if (!lat || !lng) {
-        next(new AppError('Please provide latitutr and longitude in the format lat,lng.', 400));
+        next(new AppError('Please provide latitude and longitude in the format lat,lng.', 400));
     }
 
     const distances = await Tour.aggregate([
