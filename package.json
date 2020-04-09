@@ -5,7 +5,8 @@
     "description": "Learning node, express and mongoDB",
     "main": "app.js",
     "scripts": {
-        "start": "node ./bin/www",
+        "start": "node server.js",
+        "dev": "node ./bin/www",
         "start:dev": "nodemon server.js",
         "start:prod": "nodemon server.js NODE_ENV=production",
         "debug": "ndb server.js",
@@ -53,5 +54,8 @@
         "ndb": "^1.1.5",
         "prettier": "1.19.1",
         "slugify": "^1.4.0"
+    },
+    "engines": {
+        "node": ">=10.0.0"
     }
 }
