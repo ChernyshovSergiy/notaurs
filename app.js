@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -73,7 +74,7 @@ app.use(
 //   console.log("Hello from the middleware 👋");
 //   next();
 // });
-
+app.use(compression());
 // Test middleware
 app.use((req, res, next) => {
     // req.requestTime = new Date().toISOString();

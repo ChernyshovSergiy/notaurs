@@ -5,6 +5,7 @@
 #.prettierrc
 #app.js
 #bin/
+.cache/
 config.env
 node_modules/
 #note/
