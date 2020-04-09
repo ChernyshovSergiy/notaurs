@@ -39,6 +39,7 @@
         "parcel-bundler": "^1.12.4",
         "pug": "^2.0.4",
         "sharp": "^0.25.2",
+        "slugify": "^1.4.0",
         "validator": "^12.2.0",
         "xss-clean": "^0.1.1"
     },
@@ -52,8 +53,7 @@
         "eslint-plugin-prettier": "^3.1.2",
         "eslint-plugin-react": "^7.18.3",
         "ndb": "^1.1.5",
-        "prettier": "1.19.1",
-        "slugify": "^1.4.0"
+        "prettier": "1.19.1"
     },
     "engines": {
         "node": ">=10.0.0"
