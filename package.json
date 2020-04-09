@@ -6,9 +6,8 @@
     "main": "app.js",
     "scripts": {
         "start": "node server.js",
-        "dev": "node ./bin/www",
-        "start:dev": "nodemon server.js",
-        "start:prod": "nodemon server.js NODE_ENV=production",
+        "dev": "nodemon server.js",
+        "prod": "nodemon server.js NODE_ENV=production",
         "debug": "ndb server.js",
         "watch:js": "parcel watch ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js",
         "build:js": "parcel build ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js"
